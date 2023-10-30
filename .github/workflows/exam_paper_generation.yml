@@ -25,12 +25,11 @@ jobs:
       - name: Generate Exam Papers
         run: python script.py
 
-      - name: Move Exam Papers to Root
-        run: |
-          mv $GITHUB_WORKSPACE/* .
+      - name: Move HTML Exam Papers to Root
+        run: mv $GITHUB_WORKSPACE/*.html .
 
       - name: Upload Exam Paper Artifact
         uses: actions/upload-artifact@v2
         with:
           name: exam-papers
-          path: . # Upload all files in the root directory
+          path: . # Upload all HTML files in the root directory
