@@ -79,7 +79,8 @@ try:
 
     # Save the exam paper with an increment in the name
     file_name = f"exam_paper{paper_number}.html"
-    file_path = os.path.join('C:\\xampp\\htdocs\\EP', file_name)
+    file_path = os.path.join(os.getenv('GITHUB_WORKSPACE'), file_name)
+
 
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(exam_paper)
