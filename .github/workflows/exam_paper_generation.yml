@@ -1,4 +1,4 @@
-name: Generate Exam Papers1
+name: script
 
 on:
   push:
