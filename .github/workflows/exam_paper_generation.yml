@@ -18,21 +18,15 @@ jobs:
         with:
           python-version: 3.x
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-
       - name: Generate Exam Papers
         run: python script.py
 
-      - name: Move HTML Exam Papers to Root
+      - name: Move Exam Papers to Root
         run: |
-          for file in $GITHUB_WORKSPACE/*.html; do
-            mv "$file" "$GITHUB_WORKSPACE/$(basename $file)"
-          done
+          mv $GITHUB_WORKSPACE/*.html .
 
       - name: Upload Exam Paper Artifact
         uses: actions/upload-artifact@v2
         with:
           name: exam-papers
-          path: $GITHUB_WORKSPACE
+          path: . # Upload all HTML files in the root directory
