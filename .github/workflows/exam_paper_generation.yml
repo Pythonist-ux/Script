@@ -25,13 +25,8 @@ jobs:
       - name: Generate Exam Papers
         run: python script.py
 
-      - name: Copy Exam Papers
-        run: |
-          mkdir -p ${{ github.workspace }}/path/to/exam_papers
-          cp -r ${{ github.workspace }}/your-exam-papers-directory/* ${{ github.workspace }}/path/to/exam_papers
-
       - name: Upload Exam Paper Artifact
         uses: actions/upload-artifact@v2
         with:
           name: exam-papers
-          path: ${{ github.workspace }}/path/to/exam_papers
+          path: C:\xampp\htdocs\EP # Update this path to the correct location
