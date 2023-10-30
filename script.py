@@ -10,9 +10,10 @@ db_config = {
     "password": "",
     "database": "ci-cd"
 }
-#2
+
 # Get the current number of exam papers in the directory
-existing_papers = []
+# Assuming all generated papers are in the root directory
+existing_papers = [f for f in os.listdir(os.getenv('GITHUB_WORKSPACE')) if f.startswith('exam_paper')]
 paper_number = len(existing_papers) + 1
 
 try:
@@ -27,8 +28,6 @@ try:
     questions = cursor.fetchall()
 
     # Assemble questions into an HTML exam paper with some basic styling
-    #test
-    #2
     exam_paper = """
     <html>
     <head>
@@ -81,7 +80,6 @@ try:
     file_name = f"exam_paper{paper_number}.html"
     file_path = os.path.join(os.getenv('GITHUB_WORKSPACE'), file_name)
 
-
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(exam_paper)
 
@@ -91,7 +89,6 @@ except mysql.connector.Error as e:
     print(f"Error: {e}")
 
 finally:
-    
     if 'conn' in locals() and conn.is_connected():
         cursor.close()
         conn.close()
