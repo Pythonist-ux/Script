@@ -1,4 +1,4 @@
-name: script
+name: Run script
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
           python-version: 3.x
 
       - name: Generate Exam Papers
-        run: script.py
+        run: python script.py
 
       - name: Commit and Push Changes
         run: |
