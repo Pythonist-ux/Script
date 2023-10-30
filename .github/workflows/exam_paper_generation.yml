@@ -27,7 +27,7 @@ jobs:
 
       - name: Move Exam Papers to Root
         run: |
-          mv /path/to/your/generated/papers/* .
+          mv $GITHUB_WORKSPACE/* .
 
       - name: Upload Exam Paper Artifact
         uses: actions/upload-artifact@v2
