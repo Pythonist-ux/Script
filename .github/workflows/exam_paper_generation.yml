@@ -29,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: exam-papers
-          path: exam_paper.zip
+          path: exam_paper*.html # Upload the generated HTML file(s)

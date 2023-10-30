@@ -2,7 +2,6 @@ import mysql.connector
 import os
 from random import sample
 from html import escape
-import zipfile
 
 # MySQL database connection
 db_config = {
@@ -80,10 +79,6 @@ try:
     file_name = f"exam_paper{paper_number}.html"
     with open(file_name, "w", encoding="utf-8") as file:
         file.write(exam_paper)
-
-    # Create a zip file containing the HTML
-    with zipfile.ZipFile('exam_paper.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
-        zipf.write(file_name, os.path.basename(file_name))
 
     print(f"Exam paper saved as {file_name}")
 
