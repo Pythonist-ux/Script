@@ -29,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: exam-papers
-          path: C:\xampp\htdocs # Update this path to the correct location
+          path: C:\xampp\htdocs\EP # Update this path to the correct location
