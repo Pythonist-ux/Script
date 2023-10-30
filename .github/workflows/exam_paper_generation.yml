@@ -1,4 +1,4 @@
-name: Run Script
+name: Generate Exam Papers
 
 on:
   push:
@@ -18,15 +18,15 @@ jobs:
         with:
           python-version: 3.x
 
-      - name: Create and activate virtual environment
-        run: python -m venv venv
-
       - name: Install dependencies
         run: |
-          source venv/bin/activate
           pip install -r requirements.txt
 
-      - name: Run the script
-        run: |
-          source venv/bin/activate
-          python script.py
+      - name: Generate Exam Papers
+        run: python generate_exam_papers.py
+
+      - name: Upload Exam Paper Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: exam-papers
+          path: C:\xampp\htdocs # Update this path to the correct location
