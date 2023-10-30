@@ -25,8 +25,15 @@ jobs:
       - name: Generate Exam Papers
         run: python script.py
 
+      - name: Identify Generated File
+        id: find-html
+        run: |
+          for file in $GITHUB_WORKSPACE/*.html; do
+            echo "::set-output name=generated_file::$file"
+          done
+
       - name: Move Exam Paper
-        run: mv generated_exam_paper.html exam_paper.html
+        run: mv ${{ steps.find-html.outputs.generated_file }} exam_paper.html
 
       - name: Upload Exam Paper Artifact
         uses: actions/upload-artifact@v2
