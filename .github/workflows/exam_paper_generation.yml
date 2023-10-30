@@ -28,7 +28,7 @@ jobs:
       - name: Copy Exam Papers
         run: |
           mkdir -p ${{ github.workspace }}/path/to/exam_papers
-          cp -r /mnt/c/xampp/htdocs/EP/* ${{ github.workspace }}/path/to/exam_papers
+          cp -r ${{ github.workspace }}/your-exam-papers-directory/* ${{ github.workspace }}/path/to/exam_papers
 
       - name: Upload Exam Paper Artifact
         uses: actions/upload-artifact@v2
