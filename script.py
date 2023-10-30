@@ -1,7 +1,7 @@
-import mysql.connector
 import os
 from random import sample
 from html import escape
+import mysql.connector
 
 # MySQL database connection
 db_config = {
@@ -12,8 +12,7 @@ db_config = {
 }
 
 # Get the current number of exam papers in the directory
-# Assuming all generated papers are in the root directory
-existing_papers = [f for f in os.listdir(os.getenv('GITHUB_WORKSPACE')) if f.startswith('exam_paper')]
+existing_papers = []
 paper_number = len(existing_papers) + 1
 
 try:
