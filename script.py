@@ -1,7 +1,8 @@
+import mysql.connector
 import os
 from random import sample
 from html import escape
-import mysql.connector
+import zipfile
 
 # MySQL database connection
 db_config = {
@@ -75,12 +76,14 @@ try:
 
     exam_paper += "</body></html>"
 
-    # Save the exam paper with an increment in the name
+    # Save the exam paper as an HTML file
     file_name = f"exam_paper{paper_number}.html"
-    file_path = os.path.join(os.getenv('GITHUB_WORKSPACE'), file_name)
-
-    with open(file_path, "w", encoding="utf-8") as file:
+    with open(file_name, "w", encoding="utf-8") as file:
         file.write(exam_paper)
+
+    # Create a zip file containing the HTML
+    with zipfile.ZipFile('exam_paper.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
+        zipf.write(file_name, file_name)
 
     print(f"Exam paper saved as {file_name}")
 
