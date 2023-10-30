@@ -12,7 +12,7 @@ db_config = {
 }
 #2
 # Get the current number of exam papers in the directory
-existing_papers = [f for f in os.listdir('C:\\xampp\\htdocs\\EP') if f.startswith('exam_paper')]
+existing_papers = []
 paper_number = len(existing_papers) + 1
 
 try:
