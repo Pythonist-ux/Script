@@ -23,7 +23,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Generate Exam Papers
-        run: python generate_exam_papers.py
+        run: python script.py
 
       - name: Upload Exam Paper Artifact
         uses: actions/upload-artifact@v2
