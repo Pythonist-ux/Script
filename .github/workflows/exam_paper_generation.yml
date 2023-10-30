@@ -27,10 +27,12 @@ jobs:
 
       - name: Move HTML Exam Papers to Root
         run: |
-          mv $GITHUB_WORKSPACE/*.html $GITHUB_WORKSPACE/..
+          for file in $GITHUB_WORKSPACE/*.html; do
+            mv "$file" "$GITHUB_WORKSPACE/$(basename $file)"
+          done
 
       - name: Upload Exam Paper Artifact
         uses: actions/upload-artifact@v2
         with:
           name: exam-papers
-          path: $GITHUB_WORKSPACE # Upload all files in the workspace directory
+          path: $GITHUB_WORKSPACE
