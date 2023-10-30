@@ -83,7 +83,7 @@ try:
 
     # Create a zip file containing the HTML
     with zipfile.ZipFile('exam_paper.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
-        zipf.write(file_name, file_name)
+        zipf.write(file_name, os.path.basename(file_name))
 
     print(f"Exam paper saved as {file_name}")
 
