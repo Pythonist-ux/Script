@@ -1,4 +1,4 @@
-name: Generate and Serve Exam Papers
+name: Generate Exam Papers
 
 on:
   push:
@@ -25,11 +25,8 @@ jobs:
       - name: Generate Exam Papers
         run: python script.py
 
-      - name: Serve Exam Papers
-        run: |
-          echo "Starting live server..."
-          docker run -d --rm --name exam-papers -v $GITHUB_WORKSPACE:/var/www/html -p 8080:80 webdevops/php-apache:8.0
-          echo "Live server started on port 8080."
-
-      - name: Print URL
-        run: echo "View the exam paper at http://localhost:8080/exam_paper.html"
+      - name: Upload Exam Paper Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: exam-papers
+          path: . # Upload all files in the current directory
