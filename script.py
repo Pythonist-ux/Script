@@ -91,6 +91,7 @@ except mysql.connector.Error as e:
     print(f"Error: {e}")
 
 finally:
-    if conn.is_connected():
+    
+    if 'conn' in locals() and conn.is_connected():
         cursor.close()
         conn.close()
