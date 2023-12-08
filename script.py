@@ -12,7 +12,7 @@ db_config = {
     "database": "ci-cd"
 }
 
-# Get the current number of exam papers in the directory
+# Get the current number of exam papers in the directorys
 existing_papers = []
 paper_number = len(existing_papers) + 1
 
