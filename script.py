@@ -25,7 +25,7 @@ try:
 
     # Change the SQL query to select only the necessary columns
     cursor.execute(
-        "SELECT question_text, option_a, option_b, option_c, option_d, metadata FROM exam_questions ORDER BY RAND() LIMIT 5")
+        "SELECT question_text, option_a, option_b, option_c, option_d, metadata FROM exam_questions2 ORDER BY RAND() LIMIT 5")
     questions = cursor.fetchall()
 
     # Assemble questions into an HTML exam paper with some basic styling
