@@ -8,7 +8,7 @@ import zipfile
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "",
+    "password": "1234",
     "database": "ci-cd"
 }
 
